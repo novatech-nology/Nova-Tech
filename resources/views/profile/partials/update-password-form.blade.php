@@ -1,3 +1,4 @@
+{{-- Comentario Nova Tech: Arquivo resources/views/profile/partials/update-password-form.blade.php. Origem: Views de perfil do usuario. Conteudo: Monta uma tela principal do site usando Blade, HTML e estilos da interface. --}}
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">

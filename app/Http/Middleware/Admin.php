@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo app/Http/Middleware/Admin.php. Origem: Camada de middleware. Conteudo: Filtra requisicoes antes de chegarem as rotas protegidas.
 
 namespace App\Http\Middleware;
 

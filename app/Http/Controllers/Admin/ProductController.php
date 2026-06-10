@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo app/Http/Controllers/Admin/ProductController.php. Origem: Camada administrativa. Conteudo: Recebe requisicoes, consulta models e retorna views ou redirecionamentos da funcionalidade.
 
 namespace App\Http\Controllers\Admin;
 
@@ -10,47 +11,54 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
-        return view('admin.products.index', compact('products'));
+        $products = Product::latest()->get();
+        return view('admin.products.create', compact('products'));
     }
 
     public function create()
     {
-        return view('admin.products.create');
+        $products = Product::latest()->get();
+        return view('admin.products.create', compact('products'));
     }
 
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'price' => 'required|numeric',
-            'image' => 'nullable|url',
-            'category' => 'required'
+        Product::create([
+            'name'        => $request->name,
+            'category'    => $request->category,
+            'description' => $request->description,
+            'price'       => $request->price,
+            'image'       => $request->image,
         ]);
 
-        Product::create($data);
-
-        return redirect()
-            ->back()
-            ->with('success', 'Produto salvo com sucesso!');
+        return redirect()->back()->with('success', 'Produto cadastrado com sucesso!');
     }
-}
-namespace App\Http\Controllers;
 
-use App\Models\Product; // Não esqueça de importar o Model
-use Illuminate\Http\Request;
-
-class ProductController extends Controller
-{
-    public function index()
+    public function edit($id)
     {
-        // 1. Pegamos todos os produtos do banco
-        // 2. Usamos o groupBy('category') para organizar por marca
-        $productsByBrand = Product::all()->groupBy('category');
+        $product  = Product::findOrFail($id);
+        $products = Product::latest()->get();
+        return view('admin.products.edit', compact('product', 'products'));
+    }
 
-        // 3. Enviamos para a view 'loja' (ou o nome do seu arquivo blade)
-        // O compact('productsByBrand') é o que cria a variável na View
-        return view('loja', compact('productsByBrand'));
+    public function update(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        $product->update([
+            'name'        => $request->name,
+            'category'    => $request->category,
+            'description' => $request->description,
+            'price'       => $request->price,
+            'image'       => $request->image,
+        ]);
+
+        return redirect()->route('admin.products.create')
+                         ->with('success', 'Produto atualizado com sucesso!');
+    }
+
+    public function destroy($id)
+    {
+        Product::findOrFail($id)->delete();
+        return redirect()->back()->with('success', 'Produto removido com sucesso!');
     }
 }

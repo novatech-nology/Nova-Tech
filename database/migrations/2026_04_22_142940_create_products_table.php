@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo database/migrations/2026_04_22_142940_create_products_table.php. Origem: Migrations do banco de dados. Conteudo: Cria ou altera estruturas do banco de dados usadas pelo sistema Nova Tech.
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,6 +18,7 @@ return new class extends Migration
         $table->text('description');
         $table->decimal('price', 10, 2);
         $table->string('image')->nullable();
+        $table->string('category')->nullable(); 
         $table->timestamps();
     });
 

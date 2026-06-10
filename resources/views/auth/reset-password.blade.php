@@ -1,39 +1,61 @@
+{{-- Comentario Nova Tech: Arquivo resources/views/auth/reset-password.blade.php. Origem: Views de autenticacao. Conteudo: Monta uma tela principal do site usando Blade, HTML e estilos da interface. --}}
 <x-guest-layout>
-    <form method="POST" action="{{ route('password.store') }}">
+    <div class="auth-card-header">
+        <span class="auth-eyebrow">Nova senha</span>
+        <h2>Redefina sua senha</h2>
+        <p>Codigo validado. Agora crie uma nova senha para acessar sua conta Nova Tech.</p>
+    </div>
+
+    <form class="auth-form" method="POST" action="{{ route('password.store') }}">
         @csrf
 
-        <!-- Password Reset Token -->
-        <input type="hidden" name="token" value="{{ $request->route('token') }}">
+        <input type="hidden" name="email" value="{{ old('email', $email) }}">
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" />
+        <div class="auth-form-group">
+            <label class="auth-label" for="email_visible">E-mail</label>
+            <input
+                id="email_visible"
+                class="auth-input"
+                type="email"
+                value="{{ old('email', $email) }}"
+                disabled
+            >
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Senha')" />
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+        <div class="auth-form-group">
+            <label class="auth-label" for="password">Nova senha</label>
+            <input
+                id="password"
+                class="auth-input"
+                type="password"
+                name="password"
+                required
+                autofocus
+                autocomplete="new-password"
+                placeholder="Minimo 8 caracteres"
+            >
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirme a Senha')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required autocomplete="new-password" />
-
+        <div class="auth-form-group">
+            <label class="auth-label" for="password_confirmation">Confirmar nova senha</label>
+            <input
+                id="password_confirmation"
+                class="auth-input"
+                type="password"
+                name="password_confirmation"
+                required
+                autocomplete="new-password"
+                placeholder="Repita a nova senha"
+            >
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Redefinir Senha') }}
-            </x-primary-button>
+        <div class="auth-actions">
+            <button class="auth-submit" type="submit">
+                Redefinir senha
+            </button>
         </div>
     </form>
 </x-guest-layout>

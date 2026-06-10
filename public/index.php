@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo public/index.php. Origem: Entrada publica da aplicacao. Conteudo: Ponto de entrada HTTP que carrega o Laravel para responder as requisicoes.
 
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;

@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo routes/auth.php. Origem: Camada de rotas Laravel. Conteudo: Define as rotas de login, cadastro, recuperacao de senha e verificacao de conta.
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
@@ -28,11 +29,29 @@ Route::middleware('guest')->group(function () {
     Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
         ->name('password.email');
 
-    Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
+    Route::get('esqueci-a-senha', [PasswordResetLinkController::class, 'create']);
+
+    Route::post('esqueci-a-senha', [PasswordResetLinkController::class, 'store']);
+
+    Route::get('forgot-password/code', [PasswordResetLinkController::class, 'code'])
+        ->name('password.code');
+
+    Route::post('forgot-password/code', [PasswordResetLinkController::class, 'verifyCode'])
+        ->name('password.code.verify');
+
+    Route::get('esqueci-a-senha/codigo', [PasswordResetLinkController::class, 'code']);
+
+    Route::post('esqueci-a-senha/codigo', [PasswordResetLinkController::class, 'verifyCode']);
+
+    Route::get('reset-password', [NewPasswordController::class, 'create'])
         ->name('password.reset');
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
         ->name('password.store');
+
+    Route::get('redefinir-senha', [NewPasswordController::class, 'create']);
+
+    Route::post('redefinir-senha', [NewPasswordController::class, 'store']);
 });
 
 Route::middleware('auth')->group(function () {
