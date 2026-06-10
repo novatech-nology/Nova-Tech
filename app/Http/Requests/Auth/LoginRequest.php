@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo app/Http/Requests/Auth/LoginRequest.php. Origem: Camada de validacao de requests. Conteudo: Arquivo de codigo do projeto Nova Tech usado pela aplicacao.
 
 namespace App\Http\Requests\Auth;
 

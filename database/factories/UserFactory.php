@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo database/factories/UserFactory.php. Origem: Factories de testes e seeds. Conteudo: Gera dados ficticios para testes e desenvolvimento.
 
 namespace Database\Factories;
 

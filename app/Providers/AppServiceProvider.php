@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo app/Providers/AppServiceProvider.php. Origem: Camada de providers Laravel. Conteudo: Registra servicos e configuracoes globais durante o boot do Laravel.
 
 namespace App\Providers;
 

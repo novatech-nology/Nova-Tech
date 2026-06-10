@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo app/View/Components/GuestLayout.php. Origem: Camada de componentes PHP do Blade. Conteudo: Classe PHP que liga layouts ou componentes Blade ao Laravel.
 
 namespace App\View\Components;
 

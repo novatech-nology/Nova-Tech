@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo app/Http/Requests/ProfileUpdateRequest.php. Origem: Camada de validacao de requests. Conteudo: Arquivo de codigo do projeto Nova Tech usado pela aplicacao.
 
 namespace App\Http\Requests;
 
@@ -18,6 +19,7 @@ class ProfileUpdateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
+
             'email' => [
                 'required',
                 'string',
@@ -26,6 +28,8 @@ class ProfileUpdateRequest extends FormRequest
                 'max:255',
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
+
+            'address' => ['nullable', 'string', 'max:255'],
         ];
     }
 }

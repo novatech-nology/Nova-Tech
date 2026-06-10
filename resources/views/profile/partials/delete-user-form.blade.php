@@ -1,3 +1,4 @@
+{{-- Comentario Nova Tech: Arquivo resources/views/profile/partials/delete-user-form.blade.php. Origem: Views de perfil do usuario. Conteudo: Monta uma tela principal do site usando Blade, HTML e estilos da interface. --}}
 <section class="space-y-6">
     <header>
         <h2 class="text-lg font-medium text-gray-900">
@@ -24,7 +25,7 @@
             </h2>
 
             <p class="mt-1 text-sm text-gray-600">
-                {{ __('ODepois que sua conta for excluída, todos os seus recursos e dados serão removidos permanentemente. Por favor, digite sua senha para confirmar que você deseja excluir sua conta permanentemente.') }}
+                {{ __('Depois que sua conta for excluída, todos os seus recursos e dados serão removidos permanentemente. Por favor, digite sua senha para confirmar que você deseja excluir sua conta permanentemente.') }}
             </p>
 
             <div class="mt-6">
