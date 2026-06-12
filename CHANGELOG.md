@@ -1,3 +1,4 @@
+<!-- Comentario Nova Tech: Arquivo CHANGELOG.md. Origem: Arquivo raiz do projeto. Conteudo: Documento de referencia do projeto para leitura humana. -->
 # Release Notes
 
 ## [Unreleased](https://github.com/laravel/laravel/compare/v12.12.1...12.x)

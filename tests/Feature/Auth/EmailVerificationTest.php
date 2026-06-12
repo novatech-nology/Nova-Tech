@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo tests/Feature/Auth/EmailVerificationTest.php. Origem: Testes automatizados. Conteudo: Testa automaticamente uma parte do comportamento da aplicacao.
 
 use App\Models\User;
 use Illuminate\Auth\Events\Verified;

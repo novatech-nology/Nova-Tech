@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo database/migrations/0001_01_01_000000_create_users_table.php. Origem: Migrations do banco de dados. Conteudo: Cria ou altera estruturas do banco de dados usadas pelo sistema Nova Tech.
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;

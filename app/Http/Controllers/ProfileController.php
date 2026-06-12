@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo app/Http/Controllers/ProfileController.php. Origem: Camada de controllers. Conteudo: Recebe requisicoes, consulta models e retorna views ou redirecionamentos da funcionalidade.
 
 namespace App\Http\Controllers;
 
@@ -24,18 +25,24 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $request->user()->fill($request->validated());
+  public function update(ProfileUpdateRequest $request): RedirectResponse
+{
+    $request->user()->fill([
+        'name'       => $request->name,
+        'email'      => $request->email,
+        'logradouro' => $request->logradouro,
+        'numero'     => $request->numero,
+        'cidade'     => $request->cidade,
+    ]);
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    if ($request->user()->isDirty('email')) {
+        $request->user()->email_verified_at = null;
     }
+
+    $request->user()->save();
+
+    return Redirect::route('profile.edit')->with('status', 'profile-updated');
+}
 
     /**
      * Delete the user's account.

@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo database/seeders/UserSeeder.php. Origem: Seeders do banco de dados. Conteudo: Popula o banco com dados iniciais ou auxiliares para desenvolvimento.
 
 namespace Database\Seeders;
 

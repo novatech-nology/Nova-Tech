@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo app/Models/Product.php. Origem: Camada de models Eloquent. Conteudo: Representa uma tabela do banco via Eloquent e declara campos, relacoes e regras do modelo.
 
 namespace App\Models;
 
@@ -11,9 +12,19 @@ class Product extends Model
 
     protected $fillable = [
         'name',
-    'description',
-    'price',
-    'image',
-    'category',
+        'description',
+        'price',
+        'image',
+        'category',
     ];
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    public function cartItems()
+    {
+        return $this->hasMany(Cart::class);
+    }
 }

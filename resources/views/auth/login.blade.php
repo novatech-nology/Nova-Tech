@@ -1,22 +1,28 @@
+{{-- Comentario Nova Tech: Arquivo resources/views/auth/login.blade.php. Origem: Views de autenticacao. Conteudo: Monta uma tela principal do site usando Blade, HTML e estilos da interface. --}}
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
+    <div class="auth-card-header">
+        <h2>Entrar</h2>
+        <p>Acesse sua conta NovaTech para continuar.</p>
+    </div>
+
+    <form method="POST" action="{{ route('login') }}" class="auth-form">
         @csrf
 
         <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+        <div class="auth-form-group">
+            <x-input-label for="email" :value="__('Email')" class="auth-label" />
+            <x-text-input id="email" class="auth-input" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Senha')" />
+        <div class="auth-form-group">
+            <x-input-label for="password" :value="__('Senha')" class="auth-label" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-text-input id="password" class="auth-input"
                             type="password"
                             name="password"
                             required autocomplete="current-password" />
@@ -25,23 +31,28 @@
         </div>
 
         <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Lembre de mim') }}</span>
+        <div class="auth-options">
+            <label for="remember_me" class="auth-checkbox">
+                <input id="remember_me" type="checkbox" name="remember">
+                <span>{{ __('Lembre-se') }}</span>
             </label>
-        </div>
 
-        <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Esqueceu a Senha ?') }}
+                <a class="auth-link" href="{{ route('password.request') }}">
+                    {{ __('Esqueceu a Senha?') }}
                 </a>
             @endif
+        </div>
 
-            <x-primary-button class="ms-3">
+        <div class="auth-actions">
+            <x-primary-button class="auth-submit">
                 {{ __('Entrar') }}
             </x-primary-button>
         </div>
+
+        <p class="auth-footer-text">
+            Ainda não tem uma conta?
+            <a href="{{ route('register') }}">Cadastrar</a>
+        </p>
     </form>
 </x-guest-layout>

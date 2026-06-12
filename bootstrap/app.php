@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo bootstrap/app.php. Origem: Arquivo raiz do projeto. Conteudo: Inicializa configuracoes essenciais do Laravel antes da aplicacao rodar.
 use \App\Http\Middleware\Admin;
 use \App\Http\Middleware\user;
 use Illuminate\Foundation\Application;

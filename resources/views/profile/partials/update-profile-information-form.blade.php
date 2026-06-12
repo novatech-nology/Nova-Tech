@@ -1,3 +1,4 @@
+{{-- Comentario Nova Tech: Arquivo resources/views/profile/partials/update-profile-information-form.blade.php. Origem: Views de perfil do usuario. Conteudo: Monta uma tela principal do site usando Blade, HTML e estilos da interface. --}}
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
@@ -33,7 +34,7 @@
                     <p class="text-sm mt-2 text-gray-800">
                         {{ __('Seu endereço de e-mail não foi verificado..') }}
 
-                        <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#a52cad]">
                             {{ __('Click here to re-send the verification email.') }}
                         </button>
                     </p>

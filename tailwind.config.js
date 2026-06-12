@@ -1,3 +1,4 @@
+// Comentario Nova Tech: Arquivo tailwind.config.js. Origem: Arquivo raiz do projeto. Conteudo: Arquivo de configuracao ou script JavaScript do projeto.
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 

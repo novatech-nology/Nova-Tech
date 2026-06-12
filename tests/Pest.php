@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo tests/Pest.php. Origem: Testes automatizados. Conteudo: Testa automaticamente uma parte do comportamento da aplicacao.
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;

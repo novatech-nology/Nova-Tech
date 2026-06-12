@@ -1,4 +1,5 @@
 <?php
+// Comentario Nova Tech: Arquivo config/database.php. Origem: Configuracao Laravel. Conteudo: Configura um recurso do Laravel por meio de arrays carregados pela aplicacao.
 
 use Illuminate\Support\Str;
 use Pdo\Mysql;
